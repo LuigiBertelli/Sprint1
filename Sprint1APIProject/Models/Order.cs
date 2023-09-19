@@ -12,5 +12,12 @@
             Symbol = symbol;
             Price = price;
         }
+
+        public void LogInfo() {
+            var txt = $"Account: {Account} - Symbol: {Symbol} - Price: {Price}" + Environment.NewLine;
+            var fh = new FileHandler(@"C:\\Users\\berte\\My Projects\\Intelitrader\\Teste\\Sprint1\\Sprint1APIProject\\bin\\Debug\\teste.txt");
+
+            fh.Append(txt);
+        }
     }
 }

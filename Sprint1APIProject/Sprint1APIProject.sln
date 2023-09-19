@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprint1APIProject", "Sprint1APIProject.csproj", "{C69BDA5C-13D4-4D37-B7E5-9070182A7750}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprint1ApiProject", "Sprint1ApiProject.csproj", "{C69BDA5C-13D4-4D37-B7E5-9070182A7750}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,10 +2,17 @@
 {
     public class FileHandler
     {
-        // Função que acrescenta texto [txt] no arquivo que se encontra no caminho passado em path
-        public static void Append(string txt, string path)
+        private string Path {  set; get; } = string.Empty;
+
+        public FileHandler(string path)
         {
-            var file = File.AppendText(path); //Abre arquivo no modo Append
+            Path = path;
+        }
+
+        // Função que acrescenta texto [txt] no arquivo que se encontra no caminho passado em path
+        public void Append(string txt)
+        {
+            var file = File.AppendText(Path); //Abre arquivo no modo Append
 
             file.Write(txt); //Acrescenta o texto
 

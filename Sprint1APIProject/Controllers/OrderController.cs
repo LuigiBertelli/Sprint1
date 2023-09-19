@@ -2,28 +2,33 @@
 using Sprint1ApiProject.Utils;
 using Sprint1ApiProject.Models;
 using Sprint1ApiProject.Enums;
+using System.Web;
+using System.Globalization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Sprint1ApiProject.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("order")]
     [ApiController]
     public class OrderController : ControllerBase
     {
-        // POST api/<OrderController>
+        // POST /order
         // Recebe string no formato FIX e salva informações do pedido em arquivo txt
         [HttpPost]
-        public void Post([FromBody] string fix)
+        public void Post([FromBody]Fix fix)
         {
             //Converte FIX para dicionário e gera um objeto Order a partir dos campos Account(1), Price(44), Symbol(55)
-            var fixDict = FixUtils.Converter(fix);
+            var decodedFix = HttpUtility.UrlDecode(fix.Code);
+            var fixDict = FixUtils.Converter(decodedFix);
 
             var account = fixDict[(int)FixEnum.Account];
             var symbol = fixDict[(int)FixEnum.Symbol];
-            var price = Convert.ToDecimal(fixDict[(int)FixEnum.Price]);
+            var price = Convert.ToDecimal(fixDict[(int)FixEnum.Price], CultureInfo.InvariantCulture);
 
+            //Grava dados do objeto order em um arquivo
             var order = new Order(account, symbol, price);
+            order.LogInfo();
 
         }
     }
