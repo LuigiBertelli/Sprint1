@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Configuration;
 using Sprint1MobileProject.Utils;
+using System.Web;
 
 namespace Sprint1MobileProject
 {
@@ -22,7 +23,7 @@ namespace Sprint1MobileProject
 
         public async void OnBtnOrderClicked(object sender, EventArgs e)
         {
-            var uri = @"";
+            var uri = "https://localhost:7226/order";
             var fixDict = new Dictionary<int, string>()
             {
                 { 35, "D" },
@@ -40,8 +41,9 @@ namespace Sprint1MobileProject
                 { 44, FixUtil.GenerateRandomTag44().ToString() },
                 { 38, "1000" }
             };
+            var fixTxt = HttpUtility.UrlEncode(FixUtil.GenerateFIX(fixDict));
 
-            var result = await client.PostAsJsonAsync<object>(uri, new { FIX = FixUtil.GenerateFIX(fixDict)});
+            var result = await client.PostAsJsonAsync<object>(uri, new { fix = fixTxt});
         }
     }
 }

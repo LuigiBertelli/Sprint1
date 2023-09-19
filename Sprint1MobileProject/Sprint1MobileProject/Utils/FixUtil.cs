@@ -18,14 +18,14 @@ namespace Sprint1MobileProject.Utils
             }
             
 
-            return charArray.ToString();
+            return new string(charArray);
         }
 
         public static decimal GenerateRandomTag44(decimal upperBound = 100L)
         {
             var rand = new Random();
 
-            return rand.Next((int) Math.Round(upperBound, 2) * 100) / 100;
+            return rand.Next((int) Math.Round(upperBound, 2) * 100) / 100L;
         }
 
         public static string GenerateFIX(Dictionary<int, string> dict)
@@ -38,8 +38,8 @@ namespace Sprint1MobileProject.Utils
                 fix.Append($"{kvp.Key}={kvp.Value}\u0001");
             }
 
-            fix.Insert(0, fix.Length.ToString());
-            fix.Insert(0, version);
+            fix.Insert(0, $"9={fix.Length}\u0001");
+            fix.Insert(0, $"8={version}\u0001");
 
             var tag10 = $"10={GenerateTag10(fix.ToString())}\u0001";
 
