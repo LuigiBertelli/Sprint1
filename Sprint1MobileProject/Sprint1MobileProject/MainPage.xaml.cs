@@ -9,12 +9,19 @@ using System.Net.Http.Json;
 using System.Configuration;
 using Sprint1MobileProject.Utils;
 using System.Web;
+using System.Net.Http.Headers;
+using System.Text.Json.Serialization;
+using Xamarin.Essentials;
 
 namespace Sprint1MobileProject
 {
     public partial class MainPage : ContentPage
     {
-        static readonly HttpClient client = new HttpClient();
+        #if DEBUG
+            private HttpClient client = new HttpClient(DependencyService.Get<IHttpClientHandlerService>().GetInsecureHandler());
+        #else
+            private HttpClient client = new HttpClient();
+        #endif
 
         public MainPage()
         {
@@ -23,7 +30,7 @@ namespace Sprint1MobileProject
 
         public async void OnBtnOrderClicked(object sender, EventArgs e)
         {
-            var uri = "https://localhost:7226/order";
+            var uri = $"https://{(DeviceInfo.Platform == DevicePlatform.Android ? "10.0.2.2" : "localhost")}:7226/order";
             var fixDict = new Dictionary<int, string>()
             {
                 { 35, "D" },
@@ -41,9 +48,10 @@ namespace Sprint1MobileProject
                 { 44, FixUtil.GenerateRandomTag44().ToString() },
                 { 38, "1000" }
             };
-            var fixTxt = HttpUtility.UrlEncode(FixUtil.GenerateFIX(fixDict));
 
-            var result = await client.PostAsJsonAsync<object>(uri, new { fix = fixTxt});
+
+            var fixTxt = HttpUtility.UrlEncode(FixUtil.GenerateFIX(fixDict));
+            var res = await client.PostAsJsonAsync(uri, new { code = fixTxt});
         }
     }
 }

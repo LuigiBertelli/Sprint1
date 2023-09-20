@@ -7,25 +7,25 @@ namespace Sprint1MobileProject.Utils
 {
     public static class FixUtil
     {
-        public static string GenerateRandomTag55(int len = 20)
+        public static string GenerateRandomTag55()
         {
-            var charArray = new char[len];
+            var charArray = new char[5];
             var rand = new Random();
 
-            for (int i = 0; i < charArray.Length; i++)
+            for (int i = 0; i < 4; i++)
             {
-                charArray[i] = Convert.ToChar(rand.Next(94) + 32);
+                charArray[i] = Convert.ToChar(rand.Next(26) + 65);
             }
-            
 
+            charArray[4] = Convert.ToChar(rand.Next(10).ToString());
             return new string(charArray);
         }
 
-        public static decimal GenerateRandomTag44(decimal upperBound = 100L)
+        public static decimal GenerateRandomTag44(decimal upperBound = 100m)
         {
             var rand = new Random();
 
-            return rand.Next((int) Math.Round(upperBound, 2) * 100) / 100L;
+            return Math.Round((decimal) rand.NextDouble() * upperBound, 2);
         }
 
         public static string GenerateFIX(Dictionary<int, string> dict)
