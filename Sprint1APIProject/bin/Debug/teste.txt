@@ -1,3 +1,9 @@
 Account: ACC1 - Symbol: *uD>'xO=uAM9)X)UPiA- - Price: 44
 Account: ACC1 - Symbol: *uD>'xO=uAM9)X)UPiA- - Price: 4432
 Account: ACC1 - Symbol: *uD>'xO=uAM9)X)UPiA- - Price: 44,32
+Account: ACC1 - Symbol: . QF"rKr#Y/ !M*Kf|"t - Price: 70
+Account: ACC1 - Symbol: c!Y)iAz.3P|KW=R|$[R2 - Price: 20
+Account: ACC1 - Symbol: s}Wk/QDt{j]{V?-8$:Jq - Price: 35
+Account: ACC1 - Symbol: SHJGP[V^:a=[aN6KENLD - Price: 56
+Account: ACC1 - Symbol: (0Q|4`!Z&`AtE|`6e1$W - Price: 42,77
+Account: ACC1 - Symbol: HlA^ U_S</Ox1.0BrEC. - Price: 67,087400316767100
