@@ -443,9 +443,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\berte\\My Projects\\Intelitrader\\Teste\\Sprint1\\Sprint1APIProject\\Sprint1APIProject.csproj",
-      "projectName": "Sprint1APIProject",
-      "projectPath": "C:\\Users\\berte\\My Projects\\Intelitrader\\Teste\\Sprint1\\Sprint1APIProject\\Sprint1APIProject.csproj",
+      "projectUniqueName": "C:\\Users\\berte\\My Projects\\Intelitrader\\Teste\\Sprint1\\Sprint1APIProject\\Sprint1ApiProject.csproj",
+      "projectName": "Sprint1ApiProject",
+      "projectPath": "C:\\Users\\berte\\My Projects\\Intelitrader\\Teste\\Sprint1\\Sprint1APIProject\\Sprint1ApiProject.csproj",
       "packagesPath": "C:\\Users\\berte\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\berte\\My Projects\\Intelitrader\\Teste\\Sprint1\\Sprint1APIProject\\obj\\",
       "projectStyle": "PackageReference",

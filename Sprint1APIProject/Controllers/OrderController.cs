@@ -18,7 +18,7 @@ namespace Sprint1ApiProject.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public void Post([FromBody]Fix fix)
+        public IActionResult Post([FromBody]Fix fix)
         {
             try
             {
@@ -33,14 +33,18 @@ namespace Sprint1ApiProject.Controllers
                 //Grava dados do objeto order em um arquivo
                 var order = new Order(account, symbol, price);
                 var path = order.LogInfo();
-                Created(path, new {
+                return Created(path, new {
                     Success = true,
                     Key = "Created",
                 });
             }
-            catch
+            catch(Exception ex)
             {
-                BadRequest();
+                return BadRequest(new
+                {
+                    Error = ex.Message,
+                    StackTrace = ex.StackTrace
+                });
             }
         }
     }
