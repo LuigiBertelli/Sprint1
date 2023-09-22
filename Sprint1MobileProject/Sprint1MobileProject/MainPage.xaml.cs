@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using Xamarin.Forms;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Configuration;
 using Sprint1MobileProject.Utils;
 using System.Web;
-using System.Net.Http.Headers;
-using System.Text.Json.Serialization;
 using Xamarin.Essentials;
 
 namespace Sprint1MobileProject
@@ -52,6 +47,15 @@ namespace Sprint1MobileProject
 
             var fixTxt = HttpUtility.UrlEncode(FixUtil.GenerateFIX(fixDict));
             var res = await client.PostAsJsonAsync(uri, new { code = fixTxt});
+
+            if(res.StatusCode == HttpStatusCode.Created)
+            {
+                await DisplayAlert("Sucesso", "Sua ordem foi registrada com sucesso!", "OK");
+            } 
+            else if(res.StatusCode == HttpStatusCode.BadRequest)
+            {
+                await DisplayAlert("Erro", "Erro ao enviar ordem! Tente novamente mais tarde.", "OK");
+            }
         }
     }
 }
