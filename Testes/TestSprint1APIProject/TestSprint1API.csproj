@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sprint1APIProject\Sprint1ApiProject.csproj" />
+    <ProjectReference Include="..\..\Sprint1APIProject\Sprint1ApiProject.csproj" />
   </ItemGroup>
 
 </Project>
